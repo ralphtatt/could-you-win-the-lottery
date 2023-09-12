@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            align-items: center;
+            color: white;
+            display: flex;
+            font-family: 'Impact';
+            height: 100vh;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #myText {
+            font-size: 100vh;
+            line-height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body id="myBody"
+    style="">
+    <h1 id="myText"></h1>
+
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function resizeFont() {
+            let vw = window.innerWidth / 100;
+            let vh = window.innerHeight / 100;
+            let vmin = Math.min(vw, vh);
+
+            document.getElementById('myText').style.fontSize = vmin * 50 + "px";
+        }
+
+        window.onload = function () {
+            var body = document.getElementById("myBody");
+            var text = document.getElementById("myText");
+            var randomNumber = getRandomInt(300000000);
+            console.log("Random Number: " + randomNumber)
+
+            if (randomNumber === 0) { //1 out of 10 chance to win
+                body.style.backgroundColor = "#386641";
+                text.innerHTML = "WON";
+            } else {
+                body.style.backgroundColor = "#bc4749";
+                text.innerHTML = "LOST";
+            }
+
+            resizeFont();
+        }
+    </script>
+</body>
+
+</html>
